@@ -1,13 +1,19 @@
-<h2>Digital Clock</h2>
-<p id="clock"></p>
+ <h2>My To-Do List</h2>
+
+<input type="text" id="task" placeholder="Enter a task">
+<button onclick="addTask()">Add</button>
+
+<ul id="list"></ul>
 
 <script>
-function updateClock() {
-  const now = new Date();
-  document.getElementById("clock").innerHTML =
-    now.toLocaleTimeString();
-}
+function addTask() {
+  let task = document.getElementById("task").value;
 
-setInterval(updateClock, 1000);
-updateClock();
+  if (task !== "") {
+    let li = document.createElement("li");
+    li.textContent = task;
+    document.getElementById("list").appendChild(li);
+    document.getElementById("task").value = "";
+  }
+}
 </script>
